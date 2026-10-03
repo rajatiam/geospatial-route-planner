@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    "depot",
+    "bridge",
+    "hub",
+    "customer"
+  ],
+  "edges": [
+    {
+      "from": "depot",
+      "to": "bridge",
+      "cost": 4
+    },
+    {
+      "from": "bridge",
+      "to": "customer",
+      "cost": 3
+    },
+    {
+      "from": "depot",
+      "to": "hub",
+      "cost": 5
+    },
+    {
+      "from": "hub",
+      "to": "customer",
+      "cost": 5
+    }
+  ]
+}
