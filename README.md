@@ -36,3 +36,13 @@ Business algorithms live in `geospatial_route_planner/core.py`; `geospatial_rout
 Uses Dijkstra over supplied directed nonnegative costs; it does not query maps or calculate road geometry. Results are deterministic and provide the traversed path and total modeled cost.
 
 This project demonstrates implemented engineering practices. It does not claim production deployment history or external certifications.
+
+## Required-waypoint routing
+
+Plan a route through one or more required waypoints while honoring blocked directed links. Reports identify the segment that becomes unreachable.
+
+```sh
+python -m geospatial_route_planner route examples/network.json depot customer --via hub
+```
+
+Create the named input snapshots, databases or plan files first using the existing commands above.

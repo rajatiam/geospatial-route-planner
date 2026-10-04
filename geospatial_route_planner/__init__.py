@@ -1,6 +1,6 @@
 """Weighted graph routing with blocked links and deterministic shortest paths."""
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 
 def entrypoint():

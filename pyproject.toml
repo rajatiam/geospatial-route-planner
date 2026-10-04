@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "geospatial-route-planner"
-version = "1.0.0"
+version = "1.1.0"
 description = "Weighted graph routing with blocked links and deterministic shortest paths"
 requires-python = ">=3.11"
 dependencies = []

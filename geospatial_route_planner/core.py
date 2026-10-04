@@ -82,3 +82,32 @@ def route(spec, start, end, blocked=()):
                 best[node] = candidate
                 heapq.heappush(queue, (candidate[0], candidate[1], node))
     return {"reachable": False, "path": [], "cost": None, "visited_nodes": len(settled)}
+
+
+def route_via(spec, start, end, via=(), blocked=()):
+    stops = [start, *via, end]
+    path = []
+    cost = 0
+    visited = 0
+    for left, right in zip(stops, stops[1:]):
+        result = route(spec, left, right, blocked)
+        if not result["reachable"]:
+            return {
+                "reachable": False,
+                "path": [],
+                "cost": None,
+                "failed_segment": [left, right],
+                "stops": stops,
+            }
+        path.extend(result["path"] if not path else result["path"][1:])
+        cost += result["cost"]
+        visited += result["visited_nodes"]
+        if not math.isfinite(cost):
+            raise ValueError("Accumulated route cost exceeds numeric range")
+    return {
+        "reachable": True,
+        "path": path,
+        "cost": cost,
+        "visited_nodes": visited,
+        "stops": stops,
+    }
